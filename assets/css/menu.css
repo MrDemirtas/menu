@@ -86,8 +86,11 @@ h6 {
 
 .menuLinks {
   list-style: none;
+
   li {
-    span {
+    label {
+      margin: 8px;
+      display: inline-block;
       cursor: pointer;
     }
   }
@@ -96,6 +99,25 @@ h6 {
   }
 }
 
-.hidden {
+.menuLink ul {
   display: none;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+}
+
+label:has(input[type="checkbox"]:checked) + ul {
+  display: block;
+}
+
+.menuLink:has(ul) label::before {
+  content: "+";
+}
+.menuLink:has(ul) label:has(input[type="checkbox"]:checked)::before {
+  content: "-";
+}
+
+li:not(ul) label::before {
+  content: "";
 }
