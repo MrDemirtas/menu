@@ -114,10 +114,12 @@ label:has(input[type="checkbox"]:checked) + ul {
 .menuLink:has(ul) label::before {
   content: "+";
 }
+
 .menuLink:has(ul) label:has(input[type="checkbox"]:checked)::before {
   content: "-";
 }
 
-li:not(ul) label::before {
+.menuLink:not(:has(ul)) label::before,
+.menuLink:not(:has(ul)) label:has(input[type="checkbox"]:checked)::before {
   content: "";
 }
